@@ -3,17 +3,17 @@ SavageHack
 
 A roguelike game written in JAVA that utilizes the SavageWorlds rule system for fast, furious and fun combat!
 
-Development Environment
------------------------
+### Development Environment ###
+
 Eclipse Indigo JAVA 6
 
-Authors
--------
+### Authors ###
+
 Sam Contapay 
 Damon Jacobsen
 
-License
--------
+### License ###
+
 SavageHack is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
