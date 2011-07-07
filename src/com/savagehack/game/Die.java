@@ -26,10 +26,16 @@ import java.util.Random;
  */
 public class Die {
 
+	private DieType type = DieType.d6;
 	private int numberSides = 6;
 	
-	public Die( int numSides ) {
-		this.numberSides = numSides;
+	public Die( DieType type ) {		
+		this.type = type;
+		this.numberSides = type.getNumSides();
+	}
+	
+	public String getNameDie() {
+		return type.toString();
 	}
 	
 	/**
