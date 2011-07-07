@@ -2,21 +2,23 @@ package com.savagehack.window;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTextPane;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.Insets;
+import javax.swing.JTextPane;
 
 /**
  * This is the main game window for SavageHack. A roguelike game that uses the
@@ -53,7 +55,7 @@ public class GameWindow extends JFrame {
 	private final JSplitPane splitPanePlayer = new JSplitPane();
 	private final JTextPane ASCIIMap = new JTextPane();
 	private final JLabel lblCommand = new JLabel("Command");
-	private final JTextField textField = new JTextField();
+	private final JTextField txtCommand = new JTextField();
 	private final JLabel lblAgility = new JLabel("Agility:");
 	private final JLabel lblAgilityStat = new JLabel("1d4");
 	private final JLabel lblSmarts = new JLabel("Smarts:");
@@ -80,7 +82,7 @@ public class GameWindow extends JFrame {
 		splitPanePlayer.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
 		splitPanePlayer.setLeftComponent( characterControlPanel );
 		GridBagLayout gbl_characterControlPanel = new GridBagLayout();
-		gbl_characterControlPanel.columnWidths = new int[]{86, 47};
+		gbl_characterControlPanel.columnWidths = new int[]{114, 47};
 		gbl_characterControlPanel.rowHeights = new int[]{20, 0, 0, 0, 0, 0, 0, 0};
 		gbl_characterControlPanel.columnWeights = new double[]{1.0, 0.0};
 		gbl_characterControlPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -92,12 +94,13 @@ public class GameWindow extends JFrame {
 		gbc_lblCommand_1.gridx = 0;
 		gbc_lblCommand_1.gridy = 0;
 		
-		GridBagConstraints gbc_textField_1_1 = new GridBagConstraints();
-		gbc_textField_1_1.anchor = GridBagConstraints.NORTHWEST;
-		gbc_textField_1_1.insets = new Insets(0, 0, 0, 5);
-		gbc_textField_1_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1_1.gridx = 0;
-		gbc_textField_1_1.gridy = 1;
+		GridBagConstraints gbc_txtCommand = new GridBagConstraints();
+		gbc_txtCommand.gridwidth = 2;
+		gbc_txtCommand.anchor = GridBagConstraints.NORTHWEST;
+		gbc_txtCommand.insets = new Insets(0, 0, 5, 0);
+		gbc_txtCommand.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtCommand.gridx = 0;
+		gbc_txtCommand.gridy = 1;
 		
 		GridBagConstraints gbc_lblAgility_1 = new GridBagConstraints();
 		gbc_lblAgility_1.anchor = GridBagConstraints.WEST;
@@ -111,7 +114,7 @@ public class GameWindow extends JFrame {
 		
 		GridBagConstraints gbc_lblAgilityStat_1 = new GridBagConstraints();
 		gbc_lblAgilityStat_1.anchor = GridBagConstraints.WEST;
-		gbc_lblAgilityStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAgilityStat_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblAgilityStat_1.gridx = 0;
 		gbc_lblAgilityStat_1.gridy = 3;
 		
@@ -123,7 +126,7 @@ public class GameWindow extends JFrame {
 		
 		GridBagConstraints gbc_lblSmartsStat_1 = new GridBagConstraints();
 		gbc_lblSmartsStat_1.anchor = GridBagConstraints.WEST;
-		gbc_lblSmartsStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSmartsStat_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSmartsStat_1.gridx = 0;
 		gbc_lblSmartsStat_1.gridy = 5;
 		
@@ -135,7 +138,7 @@ public class GameWindow extends JFrame {
 		
 		GridBagConstraints gbc_lblSpiritStat_1 = new GridBagConstraints();
 		gbc_lblSpiritStat_1.anchor = GridBagConstraints.WEST;
-		gbc_lblSpiritStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSpiritStat_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblSpiritStat_1.gridx = 0;
 		gbc_lblSpiritStat_1.gridy = 7;
 		
@@ -147,7 +150,7 @@ public class GameWindow extends JFrame {
 		
 		GridBagConstraints gbc_lblStrengthStat_1 = new GridBagConstraints();
 		gbc_lblStrengthStat_1.anchor = GridBagConstraints.WEST;
-		gbc_lblStrengthStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblStrengthStat_1.insets = new Insets(0, 0, 5, 0);
 		gbc_lblStrengthStat_1.gridx = 0;
 		gbc_lblStrengthStat_1.gridy = 9;
 		
@@ -161,12 +164,40 @@ public class GameWindow extends JFrame {
 		gbc_lblVigorStat_1.anchor = GridBagConstraints.WEST;
 		gbc_lblVigorStat_1.gridx = 0;
 		gbc_lblVigorStat_1.gridy = 11;
-		textField.setColumns(20);
-		gbc_textField_1_1.gridwidth = 2;
-		gbc_textField_1_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1_1.gridx = 0;
-		gbc_textField_1_1.gridy = 1;
-		characterControlPanel.add(textField, gbc_textField_1_1);
+		txtCommand.setColumns(20);
+		gbc_txtCommand.insets = new Insets(0, 0, 5, 5);
+		gbc_txtCommand.gridx = 0;
+		gbc_txtCommand.gridy = 1;
+		characterControlPanel.add(txtCommand, gbc_txtCommand);
+		
+		// Let's add a keyboard listener for the text command
+		txtCommand.addKeyListener( new KeyListener() {
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int key = e.getKeyCode();
+				if ( key == KeyEvent.VK_ENTER )
+				{
+					logPane.setText( "ENTER KEY PRESSED AND COMMAND: " + txtCommand.getText() + " PROCESSED");
+					// Reset command window and focus
+					txtCommand.setText("");
+					txtCommand.selectAll();
+				}
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
 		gbc_lblAgility_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAgility_1.gridx = 0;
@@ -212,8 +243,6 @@ public class GameWindow extends JFrame {
 		gbc_lblVigor_1.gridx = 0;
 		gbc_lblVigor_1.gridy = 6;
 		characterControlPanel.add(lblVigor, gbc_lblVigor_1);
-
-		gbc_lblVigorStat_1.insets = new Insets(0, 0, 0, 5);
 		gbc_lblVigorStat_1.gridx = 1;
 		gbc_lblVigorStat_1.gridy = 6;
 		characterControlPanel.add(lblVigorStat, gbc_lblVigorStat_1);
