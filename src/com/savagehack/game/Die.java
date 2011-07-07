@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class Die {
 
-	private DieType type = DieType.d6;
+	private DieType type = DieType.D6;
 	private int numberSides = 6;
 	
 	public Die( DieType type ) {		

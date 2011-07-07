@@ -1,12 +1,12 @@
 package com.savagehack.game;
 
 public enum DieType {
-	d4(4),
-	d6(6),
-	d8(8),
-	d10(10),
-	d12(12),
-	d20(20);
+	D4(4),
+	D6(6),
+	D8(8),
+	D10(10),
+	D12(12),
+	D20(20);
 
 	private final int numSides;
 	
