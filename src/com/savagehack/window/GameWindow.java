@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Insets;
 
 /**
  * This is the main game window for SavageHack. A roguelike game that uses the
@@ -49,6 +52,18 @@ public class GameWindow extends JFrame {
 	private final JSplitPane splitPane = new JSplitPane();
 	private final JSplitPane splitPanePlayer = new JSplitPane();
 	private final JTextPane ASCIIMap = new JTextPane();
+	private final JLabel lblCommand = new JLabel("Command");
+	private final JTextField textField = new JTextField();
+	private final JLabel lblAgility = new JLabel("Agility:");
+	private final JLabel lblAgilityStat = new JLabel("1d4");
+	private final JLabel lblSmarts = new JLabel("Smarts:");
+	private final JLabel lblSmartsStat = new JLabel("1d4");
+	private final JLabel lblSpirit = new JLabel("Spirit");
+	private final JLabel lblSpiritStat = new JLabel("1d4");
+	private final JLabel lblStrength = new JLabel("Strength");
+	private final JLabel lblStrengthStat = new JLabel("1d4");
+	private final JLabel lblVigor = new JLabel("Vigor:");
+	private final JLabel lblVigorStat = new JLabel("1d4");
 	
 	public GameWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,10 +77,148 @@ public class GameWindow extends JFrame {
 		
 		characterControlPanel.setBorder( BorderFactory.createTitledBorder("Player") );
 		logPane.setEditable(false);
-		splitPanePlayer.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		splitPanePlayer.setTopComponent( characterControlPanel );
-		splitPanePlayer.setBottomComponent( logPane );
-		splitPanePlayer.setDividerLocation( 350 );
+		splitPanePlayer.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		splitPanePlayer.setLeftComponent( characterControlPanel );
+		GridBagLayout gbl_characterControlPanel = new GridBagLayout();
+		gbl_characterControlPanel.columnWidths = new int[]{86, 47};
+		gbl_characterControlPanel.rowHeights = new int[]{20, 0, 0, 0, 0, 0, 0, 0};
+		gbl_characterControlPanel.columnWeights = new double[]{1.0, 0.0};
+		gbl_characterControlPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		characterControlPanel.setLayout(gbl_characterControlPanel);
+		
+		GridBagConstraints gbc_lblCommand_1 = new GridBagConstraints();
+		gbc_lblCommand_1.anchor = GridBagConstraints.WEST;
+		gbc_lblCommand_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblCommand_1.gridx = 0;
+		gbc_lblCommand_1.gridy = 0;
+		
+		GridBagConstraints gbc_textField_1_1 = new GridBagConstraints();
+		gbc_textField_1_1.anchor = GridBagConstraints.NORTHWEST;
+		gbc_textField_1_1.insets = new Insets(0, 0, 0, 5);
+		gbc_textField_1_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_1_1.gridx = 0;
+		gbc_textField_1_1.gridy = 1;
+		
+		GridBagConstraints gbc_lblAgility_1 = new GridBagConstraints();
+		gbc_lblAgility_1.anchor = GridBagConstraints.WEST;
+		gbc_lblAgility_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAgility_1.gridx = 0;
+		gbc_lblAgility_1.gridy = 2;
+		gbc_lblCommand_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCommand_1.gridx = 0;
+		gbc_lblCommand_1.gridy = 0;
+		characterControlPanel.add(lblCommand, gbc_lblCommand_1);
+		
+		GridBagConstraints gbc_lblAgilityStat_1 = new GridBagConstraints();
+		gbc_lblAgilityStat_1.anchor = GridBagConstraints.WEST;
+		gbc_lblAgilityStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAgilityStat_1.gridx = 0;
+		gbc_lblAgilityStat_1.gridy = 3;
+		
+		GridBagConstraints gbc_lblSmarts_1 = new GridBagConstraints();
+		gbc_lblSmarts_1.anchor = GridBagConstraints.WEST;
+		gbc_lblSmarts_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSmarts_1.gridx = 0;
+		gbc_lblSmarts_1.gridy = 4;
+		
+		GridBagConstraints gbc_lblSmartsStat_1 = new GridBagConstraints();
+		gbc_lblSmartsStat_1.anchor = GridBagConstraints.WEST;
+		gbc_lblSmartsStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSmartsStat_1.gridx = 0;
+		gbc_lblSmartsStat_1.gridy = 5;
+		
+		GridBagConstraints gbc_lblSpirit_1 = new GridBagConstraints();
+		gbc_lblSpirit_1.anchor = GridBagConstraints.WEST;
+		gbc_lblSpirit_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSpirit_1.gridx = 0;
+		gbc_lblSpirit_1.gridy = 6;
+		
+		GridBagConstraints gbc_lblSpiritStat_1 = new GridBagConstraints();
+		gbc_lblSpiritStat_1.anchor = GridBagConstraints.WEST;
+		gbc_lblSpiritStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblSpiritStat_1.gridx = 0;
+		gbc_lblSpiritStat_1.gridy = 7;
+		
+		GridBagConstraints gbc_lblStrength_1 = new GridBagConstraints();
+		gbc_lblStrength_1.anchor = GridBagConstraints.WEST;
+		gbc_lblStrength_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblStrength_1.gridx = 0;
+		gbc_lblStrength_1.gridy = 8;
+		
+		GridBagConstraints gbc_lblStrengthStat_1 = new GridBagConstraints();
+		gbc_lblStrengthStat_1.anchor = GridBagConstraints.WEST;
+		gbc_lblStrengthStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblStrengthStat_1.gridx = 0;
+		gbc_lblStrengthStat_1.gridy = 9;
+		
+		GridBagConstraints gbc_lblVigor_1 = new GridBagConstraints();
+		gbc_lblVigor_1.anchor = GridBagConstraints.WEST;
+		gbc_lblVigor_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblVigor_1.gridx = 0;
+		gbc_lblVigor_1.gridy = 10;
+		
+		GridBagConstraints gbc_lblVigorStat_1 = new GridBagConstraints();
+		gbc_lblVigorStat_1.anchor = GridBagConstraints.WEST;
+		gbc_lblVigorStat_1.gridx = 0;
+		gbc_lblVigorStat_1.gridy = 11;
+		textField.setColumns(20);
+		gbc_textField_1_1.gridwidth = 2;
+		gbc_textField_1_1.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_1_1.gridx = 0;
+		gbc_textField_1_1.gridy = 1;
+		characterControlPanel.add(textField, gbc_textField_1_1);
+
+		gbc_lblAgility_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblAgility_1.gridx = 0;
+		gbc_lblAgility_1.gridy = 2;
+		characterControlPanel.add(lblAgility, gbc_lblAgility_1);
+
+		gbc_lblAgilityStat_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblAgilityStat_1.gridx = 1;
+		gbc_lblAgilityStat_1.gridy = 2;
+		characterControlPanel.add(lblAgilityStat, gbc_lblAgilityStat_1);
+
+		gbc_lblSmarts_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSmarts_1.gridx = 0;
+		gbc_lblSmarts_1.gridy = 3;
+		characterControlPanel.add(lblSmarts, gbc_lblSmarts_1);
+
+		gbc_lblSmartsStat_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSmartsStat_1.gridx = 1;
+		gbc_lblSmartsStat_1.gridy = 3;
+		characterControlPanel.add(lblSmartsStat, gbc_lblSmartsStat_1);
+
+		gbc_lblSpirit_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSpirit_1.gridx = 0;
+		gbc_lblSpirit_1.gridy = 4;
+		characterControlPanel.add(lblSpirit, gbc_lblSpirit_1);
+
+		gbc_lblSpiritStat_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblSpiritStat_1.gridx = 1;
+		gbc_lblSpiritStat_1.gridy = 4;
+		characterControlPanel.add(lblSpiritStat, gbc_lblSpiritStat_1);
+
+		gbc_lblStrength_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblStrength_1.gridx = 0;
+		gbc_lblStrength_1.gridy = 5;
+		characterControlPanel.add(lblStrength, gbc_lblStrength_1);
+
+		gbc_lblStrengthStat_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblStrengthStat_1.gridx = 1;
+		gbc_lblStrengthStat_1.gridy = 5;
+		characterControlPanel.add(lblStrengthStat, gbc_lblStrengthStat_1);
+
+		gbc_lblVigor_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblVigor_1.gridx = 0;
+		gbc_lblVigor_1.gridy = 6;
+		characterControlPanel.add(lblVigor, gbc_lblVigor_1);
+
+		gbc_lblVigorStat_1.insets = new Insets(0, 0, 0, 5);
+		gbc_lblVigorStat_1.gridx = 1;
+		gbc_lblVigorStat_1.gridy = 6;
+		characterControlPanel.add(lblVigorStat, gbc_lblVigorStat_1);
+		//splitPanePlayer.setBottomComponent( logPane );
+		//splitPanePlayer.setDividerLocation( 350 );
 			
 		JScrollPane scrollPane = new JScrollPane( ASCIIMap );	
 		// Now let's add some stuff
@@ -73,9 +226,11 @@ public class GameWindow extends JFrame {
 		gbc_splitPane.fill = GridBagConstraints.BOTH;
 		gbc_splitPane.gridx = 0;
 		gbc_splitPane.gridy = 0;
-		splitPane.setRightComponent( scrollPane );
-		splitPane.setLeftComponent( splitPanePlayer );
-		//splitPane.setDividerLocation(200);
+		splitPane.setOrientation( JSplitPane.VERTICAL_SPLIT );
+		splitPanePlayer.setRightComponent( scrollPane );
+		splitPane.setTopComponent( splitPanePlayer );
+		splitPane.setBottomComponent( logPane );
+		splitPane.setDividerLocation( 600 );
 		getContentPane().add(splitPane, gbc_splitPane);
 		
 		setJMenuBar(menuBar);
