@@ -1,7 +1,7 @@
 SavageHack
 ==========
 
-A roguelike game written in JAVA that utilizes the SavageWorlds rule system for fast, furious and fun combat!
+A roguelike game written in JAVA that utilizes the SavageWorlds rule system for fast, furious and fun combat! For my co-worker Brian I am going to add the ability to Flirt with the monster. Your mileage may vary.
 
 ### Development Environment ###
 

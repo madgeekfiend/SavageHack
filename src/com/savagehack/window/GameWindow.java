@@ -264,7 +264,10 @@ public class GameWindow extends JFrame {
 		splitPane.setOrientation( JSplitPane.VERTICAL_SPLIT );
 		splitPanePlayer.setRightComponent( scrollPane );
 		splitPane.setTopComponent( splitPanePlayer );
-		splitPane.setBottomComponent( logPane );
+		
+		// Add a scrollpane
+		JScrollPane spLog = new JScrollPane( logPane );
+		splitPane.setBottomComponent( spLog );
 		splitPane.setDividerLocation( 600 );
 		getContentPane().add(splitPane, gbc_splitPane);
 		
