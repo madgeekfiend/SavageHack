@@ -24,25 +24,15 @@ import java.util.Random;
  * @author Sam Contapay & Damon Jacobsen
  *
  */
-public class Die {
-
-	private DieType type = DieType.D6;
-	private int numberSides = 6;
+public abstract class AbstractDie {
 	
-	public Die( DieType type ) {		
-		this.type = type;
-		this.numberSides = type.getNumSides();
-	}
+	private int result;
 	
-	public String getNameDie() {
-		return type.toString();
-	}
+	abstract public int getNumberSides();
 	
-	/**
-	 * Default constructor constructs a dice of 6-sides
-	 */
-	public Die() {
-		
+	public final int getResult()
+	{
+		return result;
 	}
 	
 	/**
@@ -50,34 +40,8 @@ public class Die {
 	 * 
 	 * @return int random number from dice roll
 	 */
-	public int roll() {		
+	public void roll() {		
 		Random randomNumber = new Random();
-		return randomNumber.nextInt( numberSides ) + 1;				
+		result =  randomNumber.nextInt( getNumberSides() ) + 1;				
 	}
-	
-	public int[] roll( int numberTimes ) {
-		int[] results = new int[numberTimes];
-		
-		for ( int x = 0; x < numberTimes; x++ )
-		{
-			results[x] = this.roll();
-		}
-		
-		return results;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println("Roll 5 random numbers");
-		Die die = new Die();
-		for ( int x = 0; x < 5; x++ )
-		{
-			System.out.println("I rolled: " + die.roll() );
-		}
-		
-		System.out.println( "Roll dice 7 amount of times");
-		int[] results = die.roll(7);
-		for ( int x = 0; x < 7; x++ )
-			System.out.println("result for roll " + (x+1) + " is: " + results[x]);
-	}
-
 }
