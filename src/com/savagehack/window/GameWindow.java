@@ -1,5 +1,6 @@
 package com.savagehack.window;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -46,8 +47,8 @@ import javax.swing.JTextPane;
 public class GameWindow extends JFrame {
 
 	private static final long serialVersionUID = 1327162934224304874L;
-	JTextPane logPane = new JTextPane();
-	JPanel characterControlPanel = new JPanel();
+	private JTextPane logPane = new JTextPane();
+	private JPanel characterControlPanel = new JPanel();
 	private final JMenuBar menuBar = new JMenuBar();
 	private final JMenu mnFile = new JMenu("File");
 	private final JMenuItem mntmExit = new JMenuItem("Exit");
@@ -178,7 +179,7 @@ public class GameWindow extends JFrame {
 				int key = e.getKeyCode();
 				if ( key == KeyEvent.VK_ENTER )
 				{
-					logPane.setText( "ENTER KEY PRESSED AND COMMAND: " + txtCommand.getText() + " PROCESSED");
+					System.out.println( "ENTER KEY PRESSED AND COMMAND: " + txtCommand.getText() + " PROCESSED");
 					// Reset command window and focus
 					txtCommand.setText("");
 					txtCommand.selectAll();
@@ -246,9 +247,14 @@ public class GameWindow extends JFrame {
 		gbc_lblVigorStat_1.gridx = 1;
 		gbc_lblVigorStat_1.gridy = 6;
 		characterControlPanel.add(lblVigorStat, gbc_lblVigorStat_1);
-		//splitPanePlayer.setBottomComponent( logPane );
-		//splitPanePlayer.setDividerLocation( 350 );
 			
+		// Create the message console and send stuff to it
+		MessageConsole mc = new MessageConsole( logPane, false );
+		
+		mc.redirectOut();
+		mc.redirectErr( Color.RED, null );
+		mc.setMessageLines( 50 );
+		
 		JScrollPane scrollPane = new JScrollPane( ASCIIMap );	
 		// Now let's add some stuff
 		GridBagConstraints gbc_splitPane = new GridBagConstraints();
@@ -280,7 +286,7 @@ public class GameWindow extends JFrame {
 	 * Initialize the game window
 	 */
 	private void init() {
-		logPane.setText("Starting Savage Hacks...");
+		System.out.println("Starting Savage Hacks...");
 	}
 	
 	public static void main(String[] args) {

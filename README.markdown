@@ -9,8 +9,7 @@ Eclipse Indigo JAVA 6
 
 ### Authors ###
 
-Sam Contapay 
-Damon Jacobsen
+Sam Contapay & Damon Jacobsen
 
 ### License ###
 
