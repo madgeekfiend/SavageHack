@@ -45,6 +45,8 @@ import javax.swing.JTextPane;
  *
  */
 public class GameWindow extends JFrame {
+	
+	private final static int MAXIMUM_LOG_LINES = 50;
 
 	private static final long serialVersionUID = 1327162934224304874L;
 	private JTextPane logPane = new JTextPane();
@@ -253,7 +255,7 @@ public class GameWindow extends JFrame {
 		
 		mc.redirectOut();
 		mc.redirectErr( Color.RED, null );
-		mc.setMessageLines( 50 );
+		mc.setMessageLines( GameWindow.MAXIMUM_LOG_LINES );
 		
 		JScrollPane scrollPane = new JScrollPane( ASCIIMap );	
 		// Now let's add some stuff
