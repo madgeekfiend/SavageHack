@@ -1,4 +1,4 @@
-package com.savagehack.game;
+package com.generic.dice;
 
 public enum DieType {
 	D4(4),

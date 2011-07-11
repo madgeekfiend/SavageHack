@@ -1,4 +1,4 @@
-package com.savagehack.game.dice;
+package com.generic.dice;
 
 public interface Die {
 	

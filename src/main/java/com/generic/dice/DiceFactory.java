@@ -1,9 +1,10 @@
-package com.savagehack.game.dice;
+package com.generic.dice;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
 
 public class DiceFactory {
 

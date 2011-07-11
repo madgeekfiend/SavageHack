@@ -1,4 +1,4 @@
-package com.savagehack.game;
+package com.generic.dice;
 
 import java.util.Random;
 
