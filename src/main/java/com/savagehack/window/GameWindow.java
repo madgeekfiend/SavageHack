@@ -22,6 +22,9 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 /**
  * This is the main game window for SavageHack. A roguelike game that uses the
  * savage worlds explorer edition rule set. This code is hosted on GITHUB and can be
@@ -72,6 +75,12 @@ public class GameWindow extends JFrame {
 	private final JLabel lblVigorStat = new JLabel("1d4");
 	
 	public GameWindow() {
+		
+		Logger logger = Logger.getLogger( GameWindow.class );
+		BasicConfigurator.configure();
+		logger.info("Initializing base class and gui components");
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("SavageHack");
 		GridBagLayout gridBagLayout = new GridBagLayout();
